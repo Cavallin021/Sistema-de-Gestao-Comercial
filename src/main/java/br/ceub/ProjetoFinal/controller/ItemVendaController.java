@@ -1,6 +1,7 @@
 package br.ceub.ProjetoFinal.controller;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +55,7 @@ public class ItemVendaController {
         Optional<ItemVenda> optionalItemVenda = itemVendaService.findById(id);
         if (optionalItemVenda.isPresent()) {
             ItemVenda itemVenda = optionalItemVenda.get();
-            itemVenda.setProdutoId(itemVendaDetails.getProduto());
+            itemVenda.setProduto(itemVendaDetails.getProduto());
             itemVenda.setQuantidade(itemVendaDetails.getQuantidade());
             itemVenda.setPrecoUnitario(itemVendaDetails.getPrecoUnitario());
             ItemVenda updatedItemVenda = itemVendaService.save(itemVenda);
